@@ -21,6 +21,9 @@ var customBlocks = [];
  * @return {array} ast array
  */
 var parse = function(str, blocks, ignoreSpace) {
+  // follow apache velocity conventions
+  Array.prototype.toString = function() { return '['+this.join(',')+']';}
+
   var asts = _parse(str);
   customBlocks = blocks || {};
 
